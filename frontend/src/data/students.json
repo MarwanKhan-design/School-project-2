@@ -1,0 +1,23 @@
+[
+  {
+    "_id": "1",
+    "name": "Marwan",
+    "email": "marwan@admin.com",
+    "address": "Charsadda",
+    "grade": {
+      "_id": 1,
+      "name": "7th",
+      "feeAmount": 4000
+    },
+    "invoices": [
+      { "amount": 4000, "when": "JAN 2022" },
+      { "amount": 4000, "when": "FEB 2022" },
+      { "amount": 4000, "when": "MAR 2022" }
+    ],
+    "feePaid": [
+      { "amount": 5000, "when": "18 FEB 2021" },
+      { "amount": 4000, "when": "17 MAR 2021" }
+    ],
+    "feeLeft": 3000
+  }
+]

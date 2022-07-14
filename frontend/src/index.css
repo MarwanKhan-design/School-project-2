@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+@media only screen and (max-width: 900) {
+  .no-mobile-show {
+    display: none;
+  }
+}
