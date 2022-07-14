@@ -1,3 +1,4 @@
+import { ObjectId } from "mongodb";
 import Grade from "../models/grades.js";
 
 export const getGrades = async (req, res) => {
@@ -15,7 +16,9 @@ export const createGrade = async (req, res) => {
   const grade = new Grade(body);
   grade.save();
 
-  const populatedGrade = Grade.findById(grade._id).populate("subjects");
+  const populatedGrade = await Grade.findById(
+    ObjectId(grade._id).valueOf()
+  ).populate("subjects");
   res.json(populatedGrade);
 };
 export const updateGrade = async (req, res) => {
