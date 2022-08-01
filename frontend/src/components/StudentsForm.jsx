@@ -40,6 +40,7 @@ const StudentForm = ({ setStudents, grades }) => {
           name={name}
           id={name}
           onChange={(e) => setFormData({ ...formData, [name]: e.target.value })}
+          value={formData[name]}
         >
           <option value="">Select {name}</option>
           {data &&
@@ -65,6 +66,7 @@ const StudentForm = ({ setStudents, grades }) => {
       ...prevState,
       { ...student, _id: prevState.length + 1 },
     ]);
+    setFormData({ name: "", email: "", address: "", grade: "", section: "" });
   };
   return (
     <form>

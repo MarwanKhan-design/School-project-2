@@ -18,11 +18,15 @@ const GradeTable = ({ grades }) => {
                 <td>{grade.name}</td>
                 <td>
                   {grade.subjects &&
-                    grade.subjects.map((subject) => <>{subject.name}, </>)}
+                    grade.subjects.map((subject) => (
+                      <span key={subject.name}>{subject.name}, </span>
+                    ))}
                 </td>
                 <td>
                   {grade.sections &&
-                    grade.sections.map((section) => <>{section.name}, </>)}
+                    grade.sections.map((section) => (
+                      <span key={section.name}>{section.name}, </span>
+                    ))}
                 </td>
               </tr>
             ))}

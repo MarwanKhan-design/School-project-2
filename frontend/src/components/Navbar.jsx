@@ -7,6 +7,8 @@ const NavbarComponent = () => {
     { label: "Students", route: "/students" },
     { label: "Subjects", route: "/subjects" },
     { label: "Grades", route: "/grades" },
+    { label: "Invoices", route: "/invoices" },
+    { label: "Pay Slip", route: "/pay/slip" },
   ];
   return (
     <Navbar bg="dark" variant="dark" expand="lg" sticky="top">

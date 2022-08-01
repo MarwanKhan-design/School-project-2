@@ -43,7 +43,7 @@ const GradeForm = ({ setGrades, subjects }) => {
         <div className="card-body">
           <h4 className="card-title">{label}</h4>
           {data.map((d) => (
-            <div class="form-check">
+            <div className="form-check" key={d._id}>
               <input
                 className="form-check-input"
                 type="checkbox"
@@ -51,7 +51,7 @@ const GradeForm = ({ setGrades, subjects }) => {
                 id={d._id}
                 onChange={(e) => onChangeCheckbox(name, e.target.value)}
               />
-              <label class="form-check-label" htmlFor={d._id}>
+              <label className="form-check-label" htmlFor={d._id}>
                 {d.name}
               </label>
             </div>
@@ -103,6 +103,7 @@ const GradeForm = ({ setGrades, subjects }) => {
       ...prevState,
       { ...grade, _id: prevState.length + 1 },
     ]);
+    setFormData({ name: "", subjects: [], sections: [] });
   };
   return (
     <form>

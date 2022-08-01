@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 import subjectRoutes from "./routes/subjects.js";
 import gradeRoutes from "./routes/grades.js";
 import studentRoutes from "./routes/students.js";
+import invoiceRoutes from "./routes/invoices.js";
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use(cors({ origin: "*" }));
 app.use("/api/subjects", subjectRoutes);
 app.use("/api/grades", gradeRoutes);
 app.use("/api/students", studentRoutes);
+app.use("/api/invoices", invoiceRoutes);
 
 mongoose.connect("mongodb://127.0.0.1:27017/school-project", () =>
   console.log("Connected to db")
