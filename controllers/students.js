@@ -69,9 +69,9 @@ export const searchStudents = async (req, res) => {
 
     students = students.filter(
       (s) =>
-        s.name.toLowerCase().includes(searchQuery) ||
-        s.email.toLowerCase().includes(searchQuery) ||
-        s.address.toLowerCase().includes(searchQuery)
+        s.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        s.address.toLowerCase().includes(searchQuery.toLowerCase())
     );
   } else {
     students = await Student.find()
