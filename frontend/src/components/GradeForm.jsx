@@ -5,7 +5,7 @@ const GradeForm = ({ setGrades, subjects }) => {
   const [formData, setFormData] = useState({
     name: "",
     subjects: [],
-    sections: [],
+    sections: [{ name: "A" }],
   });
   const [formSection, setFormSection] = useState("");
 
@@ -20,6 +20,7 @@ const GradeForm = ({ setGrades, subjects }) => {
             onChange={(e) =>
               setFormData({ ...formData, [name]: e.target.value })
             }
+            value={formData[name]}
           />
         </div>
       </div>
@@ -49,6 +50,7 @@ const GradeForm = ({ setGrades, subjects }) => {
                 type="checkbox"
                 value={d._id}
                 id={d._id}
+                checked={formData[name].includes(d._id)}
                 onChange={(e) => onChangeCheckbox(name, e.target.value)}
               />
               <label className="form-check-label" htmlFor={d._id}>
@@ -99,11 +101,9 @@ const GradeForm = ({ setGrades, subjects }) => {
   const createGrade = async (e) => {
     e.preventDefault();
     const grade = await fetchCreateGrade(formData);
-    setGrades((prevState) => [
-      ...prevState,
-      { ...grade, _id: prevState.length + 1 },
-    ]);
-    setFormData({ name: "", subjects: [], sections: [] });
+    console.log(grade);
+    setGrades((prevState) => [...prevState, { ...grade }]);
+    setFormData({ name: "", subjects: [], sections: [{ name: "A" }] });
   };
   return (
     <form>

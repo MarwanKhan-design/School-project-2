@@ -20,6 +20,8 @@ const StudentForm = ({ setStudents, grades }) => {
             id={name}
             type={type}
             className="form-control"
+            autocomplete="off"
+            value={formData[name]}
             onChange={(e) =>
               setFormData({ ...formData, [name]: e.target.value })
             }

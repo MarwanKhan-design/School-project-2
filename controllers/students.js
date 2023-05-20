@@ -50,7 +50,10 @@ export const payStudentFee = async (req, res) => {
 export const searchStudents = async (req, res) => {
   const { searchQuery, grade, section } = req.body;
 
-  let students;
+  let students = await Student.find()
+    .sort("name")
+    .populate("grade")
+    .populate("invoices");
 
   if (searchQuery) {
     // students = await Student.find({
@@ -62,10 +65,6 @@ export const searchStudents = async (req, res) => {
     // })
     //   .sort("name")
     //   .populate("grade");
-    students = await Student.find()
-      .sort("name")
-      .populate("grade")
-      .populate("invoices");
 
     students = students.filter(
       (s) =>
@@ -73,13 +72,15 @@ export const searchStudents = async (req, res) => {
         s.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
         s.address.toLowerCase().includes(searchQuery.toLowerCase())
     );
-  } else {
-    students = await Student.find()
-      .sort("name")
-      .populate("grade")
-      .populate("invoices");
   }
+  // else {
+  //   students = await Student.find()
+  //     .sort("name")
+  //     .populate("grade")
+  //     .populate("invoices");
+  // }
   if (grade) {
+    console.log(students);
     students = students.filter(
       (s) => ObjectId(s.grade._id).valueOf() === grade
     );

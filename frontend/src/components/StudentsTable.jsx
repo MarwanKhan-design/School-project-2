@@ -68,11 +68,9 @@ const StudentTableBody = ({ student }) => {
   return (
     <tr key={student2._id}>
       <td>
-        <Link to={`/student/${student._id}`}>
-          {student2.name && student2.name}
-        </Link>{" "}
+        <Link to={`/student/${student._id}`}>{student2 && student2.name}</Link>{" "}
       </td>
-      <td>{student2.grade.name}</td>
+      <td>{student2.grade && student2.grade.name}</td>
       <td>{totalInvoice() - totalFeePaid()}</td>
       <td>
         <div className="row">
